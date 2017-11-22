@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatListModule, MatTableModule } from '@angular/material';
+import { MatTableModule } from '@angular/material';
 import { TaskTableComponent } from './task-table/task-table.component';
 
 @NgModule({
@@ -12,7 +12,6 @@ import { TaskTableComponent } from './task-table/task-table.component';
   imports:      [
     BrowserModule,
     BrowserAnimationsModule,
-    MatListModule,
     MatTableModule
   ],
   providers:    [],
