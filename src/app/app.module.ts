@@ -1,22 +1,21 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
-
-import { AppComponent } from './app.component';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatListModule} from '@angular/material';
-
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatListModule, MatTableModule } from '@angular/material';
+import { TaskTableComponent } from './task-table/task-table.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    TaskTableComponent
   ],
-  imports: [
+  imports:      [
     BrowserModule,
     BrowserAnimationsModule,
-    MatListModule
+    MatListModule,
+    MatTableModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers:    [],
+  bootstrap:    [TaskTableComponent]
 })
 export class AppModule { }
