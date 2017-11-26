@@ -31,6 +31,8 @@ export class TaskComponent {
       if (task) {
         delete task.isEdit;
         this.taskService.editTask(task);
+      } else {
+        this.taskService.getTasks();
       }
     });
   }
