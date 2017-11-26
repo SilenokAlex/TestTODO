@@ -1,0 +1,36 @@
+<div class="container">
+  <header></header>
+
+  <div class="options-block">
+    <mat-form-field class="options-field">
+      <input
+        matInput
+        type="text"
+        [(ngModel)]="searchStr"
+        [ngModelOptions]="{standalone: true}"
+        placeholder="Search by keywords..."/>
+    </mat-form-field>
+
+    <mat-form-field class="options-field">
+      <mat-select
+        placeholder="Filter"
+        [(ngModel)]="actualStatus">
+        <mat-option
+          *ngFor="let status of status"
+          [value]="status">{{ status }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <task
+    *ngFor="let task of tasks | filterByStatus:actualStatus | searchTask:searchStr"
+    [task]="task">
+  </task>
+
+  <p
+    class="blank-tasks-message"
+    *ngIf="!tasks.length">
+    Not Have Tasks
+  </p>
+</div>

@@ -1,0 +1,31 @@
+<mat-card class="task-card" [ngClass]="{'completed-card': task.completed}">
+  <mat-card-title>
+    <span class="finished-chip" *ngIf="task.completed">COMPLETED</span>
+    {{ task.title }}
+  </mat-card-title>
+
+  <mat-card-content>
+    <mat-chip-list>
+      <mat-chip *ngFor="let tag of task.tags" selected="true" color="primary">{{tag}}</mat-chip>
+    </mat-chip-list>
+  </mat-card-content>
+
+  <mat-card-actions class="flex-row-wrap">
+    <div>
+      <mat-icon class="icon">date_range</mat-icon>
+      <span class="strong-text">{{task.date}}</span>
+      <mat-icon class="icon">access_time</mat-icon>
+      <span class="strong-text">{{task.time}}</span>
+    </div>
+    <div>
+      <button mat-button (click)="complete()" *ngIf="!task.completed">
+        <mat-icon>done</mat-icon>
+        <span>COMPLETE</span>
+      </button>
+      <button mat-button (click)="remove()">
+        <mat-icon>delete</mat-icon>
+        <span>REMOVE</span>
+      </button>
+    </div>
+  </mat-card-actions>
+</mat-card>

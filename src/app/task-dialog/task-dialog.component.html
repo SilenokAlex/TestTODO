@@ -1,0 +1,60 @@
+<h1 mat-dialog-title>New Task</h1>
+
+<form mat-dialog-content class="form-wrap">
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      required
+      type="text"
+      placeholder="Add title"
+      [(ngModel)]="task.title"
+      [ngModelOptions]="{standalone: true}"/>
+  </mat-form-field>
+
+  <mat-form-field class="form-field">
+    <mat-chip-list #tagsList>
+      <mat-chip
+        *ngFor="let tag of task.tags"
+        [removable]="removable"
+        (remove)="removeTag(tag)">
+        {{tag}}
+        <mat-icon
+          matChipRemove
+          *ngIf="removable">
+          x
+        </mat-icon>
+      </mat-chip>
+      <input
+        placeholder="Add tags"
+        [matChipInputFor]="tagsList"
+        [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+        [matChipInputAddOnBlur]="addOnBlur"
+        (matChipInputTokenEnd)="addTag($event)"/>
+    </mat-chip-list>
+  </mat-form-field>
+
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      required
+      type="date"
+      placeholder="Add date"
+      [(ngModel)]="task.date"
+      [ngModelOptions]="{standalone: true}"/>
+  </mat-form-field>
+
+  <mat-form-field class="form-field">
+    <input
+      matInput
+      required
+      type="time"
+      placeholder="Add time"
+      [(ngModel)]="task.time"
+      [ngModelOptions]="{standalone: true}"/>
+  </mat-form-field>
+</form>
+
+<div mat-dialog-actions>
+  <button mat-button (click)="create()">Add Task</button>
+  <button mat-button (click)="cancel()">Cancel</button>
+</div>

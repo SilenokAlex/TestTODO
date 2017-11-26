@@ -1,0 +1,21 @@
+<mat-toolbar
+  class="fixed-header"
+  color="primary">
+  <span>
+    <button
+      mat-icon-button
+      [matMenuTriggerFor]="menu">
+      <mat-icon>more_vert</mat-icon>
+    </button>
+
+    <mat-menu #menu="matMenu">
+      <button
+        mat-menu-item
+        (click)="openDialog()">
+        <mat-icon>add</mat-icon>
+        <span>Create New Task</span>
+      </button>
+    </mat-menu>
+  </span>
+  <h3>TODO List</h3>
+</mat-toolbar>
