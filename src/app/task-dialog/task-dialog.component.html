@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>New Task</h1>
+<h1 mat-dialog-title>{{ task.isEdit ? 'Edit Task' : 'New Task' }}</h1>
 
 <form mat-dialog-content class="form-wrap">
   <mat-form-field class="form-field">
@@ -57,7 +57,7 @@
 <div mat-dialog-actions>
   <button
     mat-button
-    (click)="create()">{{ isEdit ? 'Edit Task' : 'Add Task' }}
+    (click)="create()">{{ task.isEdit ? 'Edit Task' : 'Add Task' }}
   </button>
   <button mat-button (click)="cancel()">Cancel</button>
 </div>
