@@ -46,6 +46,18 @@ export class TaskService {
     }
   }
 
+  editTask(task) {
+    try {
+      let tasks: any[] = this.storageService.getItem(TASKS_KEY);
+      let index = TaskService.getTaskIndex(tasks, task);
+      tasks[index] = task;
+      this.storageService.setItem(TASKS_KEY, tasks);
+      this.tasks.next(tasks);
+    } catch (err) {
+      throw err;
+    }
+  }
+
   completeTask(task) {
     try {
       let tasks: any[] = this.storageService.getItem(TASKS_KEY);

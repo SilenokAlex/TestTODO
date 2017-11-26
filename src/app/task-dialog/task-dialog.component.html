@@ -21,7 +21,7 @@
         <mat-icon
           matChipRemove
           *ngIf="removable">
-          x
+          cancel
         </mat-icon>
       </mat-chip>
       <input
@@ -55,6 +55,9 @@
 </form>
 
 <div mat-dialog-actions>
-  <button mat-button (click)="create()">Add Task</button>
+  <button
+    mat-button
+    (click)="create()">{{ isEdit ? 'Edit Task' : 'Add Task' }}
+  </button>
   <button mat-button (click)="cancel()">Cancel</button>
 </div>

@@ -15,15 +15,12 @@ const COMMA = 188;
   ]
 })
 
-export class TaskDialogComponent implements OnInit {
+export class TaskDialogComponent {
   removable: boolean = true;
   addOnBlur: boolean = true;
   separatorKeysCodes = [ENTER, COMMA];
 
   constructor(public dialogRef: MatDialogRef<TaskDialogComponent>, @Inject(MAT_DIALOG_DATA) public task: any) {
-  }
-
-  ngOnInit() {
   }
 
   addTag(event: MatChipInputEvent): void {

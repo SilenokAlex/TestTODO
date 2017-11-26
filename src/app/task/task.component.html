@@ -1,12 +1,21 @@
-<mat-card class="task-card" [ngClass]="{'completed-card': task.completed}">
+<mat-card
+  class="task-card"
+  [ngClass]="{'completed-card': task.completed}">
   <mat-card-title>
-    <span class="finished-chip" *ngIf="task.completed">COMPLETED</span>
+    <span
+      class="finished-chip"
+      *ngIf="task.completed">Completed</span>
     {{ task.title }}
   </mat-card-title>
 
   <mat-card-content>
     <mat-chip-list>
-      <mat-chip *ngFor="let tag of task.tags" selected="true" color="primary">{{tag}}</mat-chip>
+      <mat-chip
+        *ngFor="let tag of task.tags"
+        selected="true"
+        color="primary">
+        {{tag}}
+      </mat-chip>
     </mat-chip-list>
   </mat-card-content>
 
@@ -18,13 +27,24 @@
       <span class="strong-text">{{task.time}}</span>
     </div>
     <div>
-      <button mat-button (click)="complete()" *ngIf="!task.completed">
+      <button
+        mat-button
+        (click)="complete()"
+        *ngIf="!task.completed">
         <mat-icon>done</mat-icon>
-        <span>COMPLETE</span>
+        <span>Complete</span>
       </button>
-      <button mat-button (click)="remove()">
+      <button
+        mat-button
+        (click)="editTask(task)">
+        <mat-icon>edit</mat-icon>
+        <span>Edit</span>
+      </button>
+      <button
+        mat-button
+        (click)="remove()">
         <mat-icon>delete</mat-icon>
-        <span>REMOVE</span>
+        <span>Remove</span>
       </button>
     </div>
   </mat-card-actions>
